@@ -19,17 +19,35 @@ yarn add  m-hooks
 
 | Name                                                     | Arguments                          | Returns                                                      |
 | -------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
-| <h6>Form</h6>                                      |                                    |                                                              |
+| [`useDebounce`](#useDebouncef-time-deps)                 | f, time, dependencies              | cancel                                                       |
+| [`useThrottle`](#useThrottlef-time-deps)                 | f, time, dependencies              | cancel                                                       |
 | [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                  |
-| <h6>Lifecycles</h6>                                      |                                    |                                                              |
+| [`useTitle`](#useTitleTitle)                             | title                              |                                                            |
 | [`useDidMount`](#usedidmountf)                           | f                                  | -                                                            |
 | [`useWillUnmount`](#usewillunmountf)                     | f                                  | -                                                            |
-| [`useDidUpdate`](#usedidupdatef-options)                 | f, dependencies                      | -                                                            |
-| <h6>State</h6>                                           |                                    |                                                              |
+| [`useDidUpdate`](#usedidupdatef-deps)                    | f, dependencies                    | -                                                            |
 | [`useToggle`](#useToggleInitial)                         | initial                            | { on, set, reset, toggle }                                   |
-| <h6>Feedback</h6>                                        |                                    |                                                              |
 | [`useHover`](#useHover)                                  | -                                  | { hovered, bind }                                            |
 | [`useFocus`](#useFocus)                                  | -                                  | { focused, bind }                                            |
+
+### `useDebounce(f, time?, deps?)`
+### `useThrottle(f, time?, deps?)`
+```js
+import { useDebounce, useThrottle } from 'm-hooks'
+
+const debounceCancel = useDebounce(() => {
+  // callback
+}, 2000, [a])
+
+const throttleCancel = useThrottle(() => {
+  // callback
+}, 2000, [a])
+```
+
+### `useTitle(title)`
+```js
+useTitle('document title')
+```
 
 ### `useField(initial)`
 ```js
@@ -68,7 +86,7 @@ useWillUnmount(() => {
 })
 ```
 
-### `useDidUpdate(f, options?)`
+### `useDidUpdate(f, deps?)`
 Similar to `componentDidUpdate`, it only runs on updates.
 #### Arguments
 - `f: () => Function | void`: f is called on every updates. Like `useEffect`, f can return a clean-up function.

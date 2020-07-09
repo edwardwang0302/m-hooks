@@ -9,3 +9,9 @@ export { default as useToggle } from './hooks/useToggle'
 export { default as useFocus } from './hooks/useFocus'
 
 export { default as useField } from './hooks/useField'
+
+export { default as useDebounce } from './hooks/useDebounce'
+
+export { default as useThrottle } from './hooks/useThrottle'
+
+export { default as useTitle } from './hooks/useTitle'
