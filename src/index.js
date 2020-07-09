@@ -1,21 +1,11 @@
-import * as React from 'react'
+export { default as useDidMount } from './hooks/useDidMount'
 
-export const useMyHook = () => {
-  let [{
-    counter
-  }, setState] = React.useState({
-    counter: 0
-  })
+export { default as useDidUpdate } from './hooks/useDidUpdate'
 
-  React.useEffect(() => {
-    let interval = window.setInterval(() => {
-      counter++
-      setState({counter})
-    }, 1000)
-    return () => {
-      window.clearInterval(interval)
-    }
-  }, [])
+export { default as useWillUnmount } from './hooks/useWillUnmount'
 
-  return counter
-}
+export { default as useToggle } from './hooks/useToggle'
+
+export { default as useFocus } from './hooks/useFocus'
+
+export { default as useField } from './hooks/useField'

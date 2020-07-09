@@ -1,3 +1,4 @@
+
 # m-hooks
 
 > A set of reusable react hooks
@@ -9,21 +10,115 @@
 ```bash
 npm install --save m-hooks
 ```
+or
+```bash
+yarn add  m-hooks
+```
 
-## Usage
+## Hooks
 
-```jsx
-import React, { Component } from 'react'
+| Name                                                     | Arguments                          | Returns                                                      |
+| -------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
+| <h6>Form</h6>                                      |                                    |                                                              |
+| [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                  |
+| <h6>Lifecycles</h6>                                      |                                    |                                                              |
+| [`useDidMount`](#usedidmountf)                           | f                                  | -                                                            |
+| [`useWillUnmount`](#usewillunmountf)                     | f                                  | -                                                            |
+| [`useDidUpdate`](#usedidupdatef-options)                 | f, dependencies                      | -                                                            |
+| <h6>State</h6>                                           |                                    |                                                              |
+| [`useToggle`](#useToggleInitial)                         | initial                            | { on, set, reset, toggle }                                   |
+| <h6>Feedback</h6>                                        |                                    |                                                              |
+| [`useHover`](#useHover)                                  | -                                  | { hovered, bind }                                            |
+| [`useFocus`](#useFocus)                                  | -                                  | { focused, bind }                                            |
 
-import { useMyHook } from 'm-hooks'
+### `useField(initial)`
+```js
+import {useField} from 'm-hooks'
 
-const Example = () => {
-  const example = useMyHook()
+const MyComponent = () => {
+  const { value, bind } = useField('Type Here...')
+
   return (
-    <div>{example}</div>
+    <div>
+      input text:
+      {value}
+      <input type="text" {...bind} />
+    </div>
   )
 }
 ```
+
+### `useDidMount(f)`
+Similar to `componentDidMount` in React class component. 
+#### Arguments
+- `f: () => void`: f is  called when component did mount.
+```js
+useDidMount(() => {
+  console.log('componentDidMount')
+})
+```
+
+### `useWillUnmount(f)`
+Close to the `componentWillUnmount` in React class component.
+#### Arguments
+- `f: () => void`: f is called when component will unmount.
+```js
+useWillUnmount(() => {
+  console.log('componentWillUnmount')
+})
+```
+
+### `useDidUpdate(f, options?)`
+Similar to `componentDidUpdate`, it only runs on updates.
+#### Arguments
+- `f: () => Function | void`: f is called on every updates. Like `useEffect`, f can return a clean-up function.
+- `dependencies?: Array<any>`: Optional array for conditionally firing an effect, same as the second argument passed to `useEffect`.
+```js
+useDidUpdate(() => {
+  console.log('ComponentDidUpdate')
+})
+
+useDidUpdate(() => {
+  console.log('ComponentDidUpdate')
+}, [dep1, dep2])
+```
+
+### `useToggle(initial)`
+```js
+import { useToggle } from 'm-hooks'
+
+const Toggle = () => {
+  const { on, toggle, reset } = useToggle(false)
+  return (
+    <div>
+      {String(on)}
+      <button onClick={toggle}>toggle</button>
+      <button onClick={reset}>reset</button>
+    </div>
+  )
+}
+```
+
+### `useHover()`
+
+``` js
+import { useHover } from 'm-hooks'
+
+const Hover = () => {
+  const { hovered, bind } = useHover()
+  return (
+    <div>
+      <div {...bind}>
+        hovered:
+        {String(hovered)}
+      </div>
+    </div>
+  )
+}
+```
+
+### `useFocus()`
+
 
 ## License
 
