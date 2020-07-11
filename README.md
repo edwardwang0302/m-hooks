@@ -25,6 +25,8 @@ yarn add  m-hooks
 | -------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
 | [`useDebounce`](#useDebouncef-time-deps)                 | f, time, dependencies              | cancel                                                       |
 | [`useThrottle`](#useThrottlef-time-deps)                 | f, time, dependencies              | cancel                                                       |
+| [`useClickInside`](#useClickInsideRef-f)                 | containerRef, f                    |                                                              |
+| [`useClickOutside`](#useClickOutsideRef-f)               | containerRef, f                    |                                                              |
 | [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                  |
 | [`useTitle`](#useTitleTitle)                             | title                              |                                                            |
 | [`useDidMount`](#usedidmountf)                           | f                                  | -                                                            |
@@ -69,6 +71,17 @@ const MyComponent = () => {
   )
 }
 ```
+
+### `useClickInside(containerRef, f)`
+#### Arguments
+- `containerRef`: the ref of the container element.
+- `f: () => void`: f is called when click area is inside the contianer element.
+
+### `useClickOutside(containerRef, f)`
+#### Arguments
+- `containerRef`: the ref of the container element.
+- `f: () => void`: f is called when click area is outside the contianer element.
+
 
 ### `useDidMount(f)`
 Similar to `componentDidMount` in React class component. 
