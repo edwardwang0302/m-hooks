@@ -3,7 +3,11 @@
 
 > A set of reusable react hooks
 
-[![NPM](https://img.shields.io/npm/v/m-hooks.svg)](https://www.npmjs.com/package/m-hooks) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![NPM](https://img.shields.io/npm/v/m-hooks.svg)](https://www.npmjs.com/package/m-hooks) 
+[![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
+[![MIT](https://img.shields.io/badge/license-MIT-000000.svg)](https://img.shields.io/badge/license-MIT-000000.svg)
+[![NPM](https://img.shields.io/npm/dw/m-hooks)](https://img.shields.io/npm/dw/m-hooks)
+
 
 ## Install
 
