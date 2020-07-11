@@ -15,3 +15,7 @@ export { default as useDebounce } from './hooks/useDebounce'
 export { default as useThrottle } from './hooks/useThrottle'
 
 export { default as useTitle } from './hooks/useTitle'
+
+export { default as useClickInside } from './hooks/useClickInside'
+
+export { default as useClickOutside } from './hooks/useClickOutside'
