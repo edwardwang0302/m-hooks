@@ -23,18 +23,39 @@ yarn add  m-hooks
 
 | Name                                                     | Arguments                          | Returns                                                      |
 | -------------------------------------------------------- | ---------------------------------- | ------------------------------------------------------------ |
+| [`useFetch`](#useFetchurl-options)                       | url, options                       | response, error, loading                                     |
 | [`useDebounce`](#useDebouncef-time-deps)                 | f, time, dependencies              | cancel                                                       |
 | [`useThrottle`](#useThrottlef-time-deps)                 | f, time, dependencies              | cancel                                                       |
-| [`useClickInside`](#useClickInsideRef-f)                 | containerRef, f                    |                                                              |
-| [`useClickOutside`](#useClickOutsideRef-f)               | containerRef, f                    |                                                              |
+| [`useClickInside`](#useClickInsidecontainerRef-f)        | containerRef, f                    |                                                              |
+| [`useClickOutside`](#useClickOutsidecontainerRef-f)      | containerRef, f                    |                                                              |
 | [`useField`](#useFieldInitial)                           | initial                            | { value, set, reset, bind }                                  |
-| [`useTitle`](#useTitleTitle)                             | title                              |                                                            |
+| [`useTitle`](#useTitleTitle)                             | title                              |                                                              |
 | [`useDidMount`](#usedidmountf)                           | f                                  | -                                                            |
 | [`useWillUnmount`](#usewillunmountf)                     | f                                  | -                                                            |
 | [`useDidUpdate`](#usedidupdatef-deps)                    | f, dependencies                    | -                                                            |
 | [`useToggle`](#useToggleInitial)                         | initial                            | { on, set, reset, toggle }                                   |
 | [`useHover`](#useHover)                                  | -                                  | { hovered, bind }                                            |
 | [`useFocus`](#useFocus)                                  | -                                  | { focused, bind }                                            |
+
+### `useFetch(url, options?)`
+```js
+import React from 'react'
+import { useFetch } from 'm-hooks'
+
+const App = () => {
+  const { response, loading, error } = useFetch(
+    'https://jsonplaceholder.typicode.com/todos/1'
+  )
+  return (
+    <div>
+      <h1>useFetch Usage</h1>
+      {loading && <p>加载中...</p>}
+      {error && <p>出错了...</p>}
+      {response && <p>{response.title}</p>}
+    </div>
+  )
+}
+```
 
 ### `useDebounce(f, time?, deps?)`
 ### `useThrottle(f, time?, deps?)`
