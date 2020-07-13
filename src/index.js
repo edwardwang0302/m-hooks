@@ -19,3 +19,5 @@ export { default as useTitle } from './hooks/useTitle'
 export { default as useClickInside } from './hooks/useClickInside'
 
 export { default as useClickOutside } from './hooks/useClickOutside'
+
+export { default as useFetch } from './hooks/useFetch'

@@ -1,28 +1,16 @@
 import React from 'react'
-import { useDidMount, useField, useToggle } from 'm-hooks'
-
-import DebounceDemo from './useDebounce'
+import { useFetch } from 'm-hooks'
 
 const App = () => {
-  useDidMount(() => {
-    console.log('didMount')
-  })
-  const { value, bind } = useField('')
-  const { on, toggle, reset } = useToggle(false)
+  const { response, loading, error } = useFetch(
+    'https://jsonplaceholder.typicode.com/todos/1'
+  )
   return (
     <div>
-      <input {...bind} />
-      <div>
-        <span>value:{value}</span>
-      </div>
-
-      <div>
-        {String(on)}
-        <button onClick={toggle}>toggle</button>
-        <button onClick={reset}>reset</button>
-      </div>
-
-      <DebounceDemo />
+      <h1>useFetch Usage</h1>
+      {loading && <p>加载中...</p>}
+      {error && <p>出错了...</p>}
+      {response && <p>{response.title}</p>}
     </div>
   )
 }
